@@ -7,72 +7,83 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #4a00e0, #8e2de2);
-      color: #fff;
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #0d0d0d;
+      color: #33ff33;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
+      overflow: hidden;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 40px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-      text-align: center;
-      max-width: 400px;
+    .terminal {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px #33ff33;
+      text-align: left;
       width: 90%;
+      max-width: 600px;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    h1 {
-      font-size: 2em;
+    .terminal-header {
+      font-size: 1.5em;
       margin-bottom: 20px;
+      color: #66ff66;
     }
 
     button {
-      background: #fff;
-      color: #4a00e0;
+      background: #33ff33;
+      color: #0d0d0d;
       border: none;
       padding: 12px 24px;
-      border-radius: 30px;
+      font-family: 'Courier New', Courier, monospace;
       font-size: 1em;
+      border-radius: 5px;
       cursor: pointer;
       transition: background 0.3s ease;
+      align-self: flex-start;
     }
 
     button:hover {
-      background: #e2e2e2;
+      background: #28cc28;
     }
 
     #response {
       margin-top: 20px;
+      white-space: pre-wrap;
+      word-break: break-word;
       font-size: 1.2em;
-      font-weight: bold;
-      color: #ffd;
+      color: #99ff99;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Welcome to AITechie</h1>
-    <button onclick="callBackend()">Say Hello 👋</button>
-    <div id="response"></div>
+  <div class="terminal">
+    <div class="terminal-header">[AITechie Terminal]</div>
+    <div id="response">> Ready for command...</div>
+    <button onclick="callBackend()">Run 'say-hello' command</button>
   </div>
 
   <script>
     async function callBackend() {
+      const responseDiv = document.getElementById("response");
+      responseDiv.textContent = "> Connecting...";
       try {
-        const res = await fetch("http://localhost:8088/api/hello"); // Use localhost here
+        const res = await fetch("http://3.147.8.209:9092//api/hello");
         if (!res.ok) throw new Error("Network error");
         const text = await res.text();
-        document.getElementById("response").textContent = text;
+        responseDiv.textContent = "> Server says: " + text;
       } catch (error) {
-        document.getElementById("response").textContent = "Error: " + error.message;
+        responseDiv.textContent = "> Error: " + error.message;
       }
     }
   </script>
-  
 </body>
 </html>
