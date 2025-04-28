@@ -13,7 +13,7 @@ pipeline {
         DOCKER_HUB_USER = 'phanikumar1619'
         VERSION= "1.0.0"
         TIMESTAMP = new Date().format("yyyyMMddHHmmss")
-        IMAGE_TAG = "phanikumar/backend-app:${TIMESTAMP}"
+        IMAGE_TAG = "phanikumar1619/backend-app:${TIMESTAMP}"
     }
 
     stages {
