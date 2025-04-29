@@ -58,7 +58,7 @@ pipeline {
                     sh """
                         mvn deploy:deploy-file \
                         -Dfile=${ARTIFACT_PATH} \
-                        -DrepositoryId=nexus-releases \
+                        -DrepositoryId=my-maven-releases \
                         -Durl=${NEXUS_URL}/repository/${NEXUS_REPO_JAR}/ \
                         -DgroupId=com.aitechie \
                         -DartifactId=backend \
