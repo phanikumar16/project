@@ -9,11 +9,11 @@ pipeline {
         BRANCH = 'master'                       
         DEPLOYMENT_FILE_PATH = 'manifests/deployment.yml' 
         BACKEND_DIR = 'backend'
-        DOCKER_IMAGE_NAME = 'backend-app'
+        DOCKER_IMAGE_NAME = 'backend-app1'
         DOCKER_HUB_USER = 'phanikumar1619'
         VERSION= "1.0.0"
         TIMESTAMP = new Date().format("yyyyMMddHHmmss")
-        IMAGE_TAG = "phanikumar1619/backend-app:${TIMESTAMP}"
+        IMAGE_TAG = "phanikumar1619/backend-app1:${TIMESTAMP}"
     }
 
     stages {
