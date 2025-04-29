@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        NEXUS_URL = 'http://3.147.8.209:8081' 
+        NEXUS_URL = 'http://18.188.218.38:8081' 
         NEXUS_REPO_JAR = 'my-maven-releases'     
         ARTIFACT_PATH = 'target/backend-0.0.1-SNAPSHOT.jar'
         GITHUB_REPO = 'https://github.com/phanikumar16/project'
